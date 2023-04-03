@@ -1,0 +1,29 @@
+variables:
+  GIT_SSL_NO_VERIFY: "1"
+  
+stages:
+  - build
+  - image
+
+build:ducg-cms:
+  stage: build
+  image: "node:10.22"
+  script:
+    - "npm install --registry https://registry.npm.taobao.org"
+    - "npm run build"
+  artifacts:
+    expire_in: 2h
+    paths:
+      - dist
+  tags:
+    - animalweb-npm-build
+
+image:ducg-cms:
+  stage: image
+  script:
+    - "sh build_image.sh"
+  dependencies:
+    - build:ducg-cms
+  tags:
+    - animalweb-docker-build
+

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>logo.png">
+  <title>管理后台</title>
+  <style>
+    .first-loading-wrp {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 420px;
+      height: 100%
+    }
+
+    .first-loading-wrp>h1 {
+      font-size: 64px
+    }
+
+    figure {
+      width: 8.250em;
+      height: 8.250em;
+      animation: rotate 2.4s linear infinite;
+    }
+
+    .white {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      animation: flash 2.4s linear infinite;
+      opacity: 0;
+    }
+
+    .dot {
+      position: absolute;
+      margin: auto;
+      width: 2.4em;
+      height: 2.4em;
+      border-radius: 100%;
+      transition: all 1s ease;
+    }
+
+    .dot:nth-child(2) {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background: #FF4444;
+      animation: dotsY 2.4s linear infinite;
+    }
+
+    .dot:nth-child(3) {
+      left: 0;
+      right: 0;
+      top: 0;
+      background: #FFBB33;
+      animation: dotsX 2.4s linear infinite;
+    }
+
+    .dot:nth-child(4) {
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background: #99CC00;
+      animation: dotsY 2.4s linear infinite;
+    }
+
+    .dot:nth-child(5) {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #33B5E5;
+      animation: dotsX 2.4s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+
+      10% {
+        width: 6.250em;
+        height: 6.250em;
+      }
+
+      66% {
+        width: 2.4em;
+        height: 2.4em;
+      }
+
+      100% {
+        transform: rotate(360deg);
+        width: 6.250em;
+        height: 6.250em;
+      }
+    }
+
+    @keyframes dotsY {
+      66% {
+        opacity: .1;
+        width: 2.4em;
+      }
+
+      77% {
+        opacity: 1;
+        width: 0;
+      }
+    }
+
+    @keyframes dotsX {
+      66% {
+        opacity: .1;
+        height: 2.4em;
+      }
+
+      77% {
+        opacity: 1;
+        height: 0;
+      }
+    }
+
+    @keyframes flash {
+      33% {
+        opacity: 0;
+        border-radius: 0%;
+      }
+
+      55% {
+        opacity: .6;
+        border-radius: 100%;
+      }
+
+      66% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <!-- require cdn assets css -->
+  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.css) { %>
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" />
+  <% } %>
+  <script src="<%= BASE_URL %>echarts.min.js"></script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but vue-antd-pro doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <script>
+    !(function(c,b,d,a){c[a]||(c[a]={});c[a].config=
+      {
+        pid:"jd8xt85b9u@ff784742ee6b69d",
+        appType:"web",
+        imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",
+        sendResource:true,
+        enableLinkTrace:true,
+        behavior:true,
+        enableSPA:true,
+        useFmp:true
+      };
+    with(b)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("crossorigin","",src=d)
+    })(window,document,"https://retcode.alicdn.com/retcode/bl.js","__bl");
+    </script>
+  <div id="app">
+    <div class="first-loading-wrp">
+      <!-- <h1>很准农医运营平台</h1> -->
+      <figure>
+        <div class="dot white"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </figure>
+      <div style="position: fixed; bottom: 50px; text-align: center;">百畜兴旺（山东）畜牧科技有限责任公司</div>
+    </div>
+  </div>
+  <!-- require cdn assets js -->
+  <% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %>
+  <script type="text/javascript" src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"></script>
+  <% } %>
+  <script>
+    // https导入会有此行代码
+    window.BMAP_PROTOCOL = "https"; 
+    window.HOST_TYPE = 1; 
+  </script>
+  <!-- built files will be auto injected -->
+  <!-- <script type="text/javascript"
+    src="https://api.map.baidu.com/getscript?v=2.0&ak=FDHSRgWu8qVh82yKZX0NW16nP8Tj4wYv&services=&t=20200914160603&s=1" async>
+  </script> -->
+  <script type="text/javascript">
+    window._AMapSecurityConfig = {
+      securityJsCode:'0409cf1d5a50f6d3b82b32158a1531bb',  
+    }
+</script>
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=e04d5baea4d757815317aaa51727c699"></script> 
+
+  <script src="<%= BASE_URL %>china.js" integrity="sha256-Tz+WnHJudAjrBP7OG7TJfJHl51OOpFrqpBrM92GGaMo=" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/echarts-map-chinajs@1.0.2/china.js" integrity="sha256-Tz+WnHJudAjrBP7OG7TJfJHl51OOpFrqpBrM92GGaMo=" crossorigin="anonymous"></script> -->
+
+</body>
+
+</html>
